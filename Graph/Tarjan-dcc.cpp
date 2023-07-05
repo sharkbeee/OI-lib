@@ -30,6 +30,5 @@ int main() {
 		add(u, v), add(v, u);
 	}
   	for (int i = 1; i <= n; i++) if (!dfn[i]) tarjan(i, 0);
-  	cout << cid;
   	return 0;
 }
