@@ -9,12 +9,12 @@ void add(int u, int v) {
 	e[++pos] = {u, v, head[u]};
 	head[u] = pos;
 }
-void tarjan(int u, int eIdx) {
+void tarjan(int u, int eid) {
 	dfn[u] = low[u] = ++idx, vis[u] = 1, s.push(u);
 	for (int i = head[u]; i; i = e[i].next) {
     	int v = e[i].v;
     	if (!dfn[v]) tarjan(v, i), low[u] = min(low[u], low[v]);
-    	else if (i != (eIdx ^ 1)) low[u] = min(low[u], dfn[v]);
+    	else if (i != (eid ^ 1)) low[u] = min(low[u], dfn[v]);
   	}
 	if (low[u] == dfn[u]) {
 		++cid;
